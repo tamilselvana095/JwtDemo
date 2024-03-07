@@ -42,7 +42,7 @@ public class UserController {
 	}
 	
 	@DeleteMapping("/delete/{id}")
-	public String deleteUser(@PathVariable Long id) {
+	public String deleteUser(@PathVariable Long id) throws UserNotFound {
 		return userService.deleteUser(id);
 	}
 		

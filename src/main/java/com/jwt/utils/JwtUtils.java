@@ -38,8 +38,8 @@ public class JwtUtils {
 	        
 	        String token=Jwts.builder()
 	        				 .setClaims(claims)
-	        				 .signWith(SignatureAlgorithm.HS256, securityKey)
-	        				 .compact();
+	        				 .signWith(SignatureAlgorithm.HS256, securityKey).compact();
+	        				 
 	        
 	     
 	        

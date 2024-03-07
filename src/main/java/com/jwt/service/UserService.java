@@ -1,6 +1,7 @@
 package com.jwt.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -56,7 +57,8 @@ public class UserService {
 		return userRepository.findAll();
 	}
 
-	public String deleteUser(Long id) {
+	public String deleteUser(Long id) throws UserNotFound {
+	
 		userRepository.deleteById(id);
 		return "Deleted successfully";
 	}

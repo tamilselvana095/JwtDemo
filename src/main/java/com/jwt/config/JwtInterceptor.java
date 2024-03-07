@@ -19,8 +19,14 @@ public class JwtInterceptor implements HandlerInterceptor {
 	@Override
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
 			throws Exception {
-		// TODO Auto-generated method stub
+		//incoming request
 		String token=request.getHeader("token");
+		
+		//outgoing request
+		/*
+		 * if(token!=null && !token.isEmpty()) { response.addHeader("token", token); }
+		 */
+		
 		if(!(request.getRequestURI().contains("signup") || request.getRequestURI().contains("login"))) {
 			jwtUtils.verify(token);
 		}
@@ -28,5 +34,7 @@ public class JwtInterceptor implements HandlerInterceptor {
 		
 		return true;
 	}
+	
+
 
 }
